@@ -5,7 +5,7 @@ FROM nginx:1.23.2
 RUN rm /etc/nginx/conf.d/default.conf
 
 # Copia la carpeta de nuestro contexto al del contenedor y la configuracion de nuestro NGINX
-COPY CinemaPlusFront /usr/share/nginx/html
+COPY . /usr/share/nginx/html
 COPY web.conf /etc/nginx/conf.d/web.conf
 
 # Exponer el puerto 80
