@@ -22,7 +22,7 @@ jobs:
         env:
           DOCKERHUB_REPO: ${{ secrets.DOCKERHUB_REPO }}
         run: |
-          docker build -t $DOCKERHUB_REPO:client.v1.0.0 .
+          cd CinemaPlusFront && docker build -t $DOCKERHUB_REPO:client.v1.0.0 .
 
       - name: Docker push
         env:
