@@ -8,9 +8,9 @@
     <!--BoxIcon-->
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" 
-          href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+     <!-- Link Swiper's CSS -->
+    <link rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 </head>
 <body>
   <div id="web-cinema">
@@ -23,29 +23,42 @@
         </div>
         <span class="menu-row">
           <div class="list-complete-item">
-            <button class="q-btn">
-              <span class="q-focus">
-                <span class="bloque">EN CARTELERA</span>
-              </span>
-            </button>
-          </div>
-          <div class="list-complete-item">
-            <button class="q-btn">
-              <span class="q-focus">
-                <span class="bloque">PROXIMAMENTE</span>
-              </span>
-            </button>
-          </div>
-          <div class="list-complete-item">
-            <button class="q-btn">
-              <span class="q-focus">
-                <span class="bloque">NOSOTROS</span>
-              </span>
-            </button>
+            <ul class="navbar">
+              <li><a href="#EN CARTELERA">EN CARTELERA</a></li>
+              <li><a href="#PROXIMAMENTE">PROXIMAMENTE</a></li>
+              <li><a href="#ACERCA DE NOSOTROS">ACERCA DE NOSOTROS</a></li>
+            </ul>
           </div>
         </span>
+        <div class="location-cine">
+          <i class="bx bx-map" id="map-icon"></i>
+          <label for="city-select">SELECCIONA TU CINE:</label>
+          <select id="city-select" onchange="showCity()">
+            <option value="Veracruz">Veracruz</option>
+            <option value="Xalapa">Xalapa</option>
+            <option value="Orizaba">Orizaba</option>
+          </select>
+        </div>
       </header>
+      <div class="page-container">
+        <main class="main-page">
+          <div id="swiper-container" class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="imgenes/barbie-poster.jpg" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="imgenes/Oppenheimer.jpg" alt="">
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </main>
+      </div>  
     </div>
   </div>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>

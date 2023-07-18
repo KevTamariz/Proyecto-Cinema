@@ -57,13 +57,19 @@ header {
   color: var(--text-color);
 }
 
-.menu-row span {
+.menu-row {
+  padding-left: 16px;
+  padding-right: 16px;
+  flex-wrap: wrap;
+}
+
+.navbar {
   display: flex;
   column-gap: 5rem;
 }
 
-.list-complete-item {
-  display: flex;
+.navbar li {
+  position: relative;
 }
 
 .navbar a {
@@ -85,4 +91,58 @@ header {
 
 .navbar a:hover::after {
   width: 100%;
+}
+
+#menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000001;
+  display: none;
+}
+
+#city-select {
+  display: inline;
+  font-family: 'Raleway', sans-serif;
+  border: none;
+  background-color: var(--bg-color);
+  color: var(--main-color);
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#city-select:hover {
+  background-color: #e8e8e8;
+}
+
+.page-container {
+  padding-top: 77px;
+  padding-bottom: 52px;
+  display: block;
+}
+
+.main-page {
+  min-height: 666px;
+  box-sizing: inherit;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: var(--main-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-pagination {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
 }
