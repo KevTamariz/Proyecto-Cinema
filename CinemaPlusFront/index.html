@@ -11,6 +11,9 @@
      <!-- Link Swiper's CSS -->
     <link rel="stylesheet"
          href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <!-- Enlace a la librería Pikaday -->
+    <link rel="stylesheet" 
+    href="pikaday.css">
 </head>
 <body>
   <div id="web-cinema">
@@ -53,12 +56,47 @@
             </div>
             <div class="swiper-pagination"></div>
           </div>
+      <div class="Seccion-1">
+          <div class="seccion-funciones">
+            <div class="lista-funciones">
+              <div class="h-funciones">
+                <h2 class="col">
+                  <span>FUNCIONES</span>
+                </h2>
+                <div class="con-btn-fun">
+                  <div class="btn-group">
+                    <button class="span-btn"></button>
+                    <button class="btn-fun" id="btn-hoy">
+                      <span class="span-btn">HOY</span>
+                    </button>
+                    <button class="span-btn"></button>
+                    <button class="btn-fun" id="btn-mañana">
+                      <span class="span-btn">Mañana</span>
+                    </button>
+                    <button class="span-btn"></button>
+                    <button class="btn-fun" id="btn-calendario">
+                      <span class="span-btn">Calendario</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="separación" style="min-width: 0;" style="max-width: 100%;"></div>
+              </div>
+              <div class="data-movies">
+                <div class="main-display">
+                  <div class="object">
+                    <div class="cont-movie-1"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>    
         </main>
       </div>  
     </div>
   </div>
-  <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+ <!-- Swiper JS -->
+ <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
