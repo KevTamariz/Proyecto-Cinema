@@ -1,14 +1,17 @@
 import mysql.connector
 
-def connectionBD():
-    mydb = mysql.connector.connect(
-        host ="35.184.44.133",
-        user ="admin",
-        passwd ="@cinemaplus1010",
-        database = "cinemaplus"
-        )
-    if mydb:
-        print ("Conexion exitosa a BD")
-        return mydb
-    else:
-        print("Error en la conexion a BD")
+# Configuracion de la conexion a la base de datos
+db_config = {
+    "host": "35.184.44.133",
+    "user": "admin",
+    "passwd": "@cinemaplus1010",
+    "database": "cinemaplus"
+}
+
+# Establecer conexion a la base de datos
+connetion = mysql.connector.connect(**db_config)
+
+# Objeto cursos para ejecutar consultar
+cursor = connetion.cursor()
+
+
