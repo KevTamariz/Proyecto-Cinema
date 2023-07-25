@@ -12,6 +12,6 @@ db_config = {
 connetion = mysql.connector.connect(**db_config)
 
 # Objeto cursos para ejecutar consultar
-cursor = connetion.cursor()
+cursor = connetion.cursor(dictionary=True)
 
 
