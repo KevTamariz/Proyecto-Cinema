@@ -1,6 +1,6 @@
 import React from 'react';
 import './FuncionesCol.css';
-var forma = require('../../assets/image-1.jpg');
+var forma = require('../../assets/BarbieCol.jpeg');
 
 const FuncionesCol = () => {
   return (

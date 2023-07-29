@@ -1,33 +1,25 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Slider from './components/slider/Slider';
-import NavFechas from './components/navfechas/Navfechas'; // Importa el componente NavFechas
-import FuncionesCol from './components/funcionescol/FuncionesCol';
-import Nosotros from './pages/Nosotros';
+import React from 'react'
+import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom'
+import Home from './pages/Home'
+import Nosotros from './pages/Nosotros'
+import Navbar from './components/Navbar'
 
+ const App = () => {
+  return (
+      <div className="app-container">
+        <BrowserRouter>
+        
 
-const slides = [
-  { url: "/src/assets/image-1.jpg", title: "beach" },
-  { url: "/src/assets/image-2.jpg", title: "boat" },
-  { url: "/src/assets/image-3.jpg", title: "forest" },
-];
+        <Navbar></Navbar>
+          <Routes>
+          <Route index element={<Home/>}/>
+          <Route path='/Home' element={<Home/>}/>
+          <Route path='/Nosotros' element={<Nosotros/>}/>
+          </Routes>
+          
+        </BrowserRouter>
+      </div>
+  );
+};
 
-export default class App extends Component {
-  render() {
-    return (
-      <Router>
-        <div className="app-container">
-          <Navbar />
-          <div className="containerslide">
-            <Slider slides={slides} />
-          </div>
-          <div className="content-container">
-            <NavFechas />
-            <FuncionesCol/>
-          </div>
-        </div>
-      </Router>
-    );
-  }
-}
+export default App;
