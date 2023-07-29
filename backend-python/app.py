@@ -62,4 +62,5 @@ def comprar_boleto():
     return jsonify({'message': 'Boleto comprado exitosamente'}), 201
 
 
-
+if __name__ == "__main__":
+    app.run(debug=True)
