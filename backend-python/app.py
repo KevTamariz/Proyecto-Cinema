@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return 'Hola mundo'
+    return 'Hello world'
 
 
 # Ruta para mostrar todas las proyecciones de una sucursal por su ID
