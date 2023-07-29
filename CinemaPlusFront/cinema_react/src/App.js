@@ -6,6 +6,7 @@ import NavFechas from './components/navfechas/Navfechas'; // Importa el componen
 import FuncionesCol from './components/funcionescol/FuncionesCol';
 import Nosotros from './pages/Nosotros';
 
+
 const slides = [
   { url: "/src/assets/image-1.jpg", title: "beach" },
   { url: "/src/assets/image-2.jpg", title: "boat" },
@@ -18,7 +19,6 @@ export default class App extends Component {
       <Router>
         <div className="app-container">
           <Navbar />
-          <Route> path="/Nosotros" components={Nosotros}</Route>
           <div className="containerslide">
             <Slider slides={slides} />
           </div>

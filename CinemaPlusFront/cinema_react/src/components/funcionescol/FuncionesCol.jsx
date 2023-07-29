@@ -1,5 +1,6 @@
 import React from 'react';
 import './FuncionesCol.css';
+var forma = require('../../assets/image-1.jpg');
 
 const FuncionesCol = () => {
   return (
@@ -8,7 +9,7 @@ const FuncionesCol = () => {
       {/* Primer contenedor */}
       <div className="contenedor">
         <div className="imagen-container">
-          <img src="ruta_de_la_imagen" alt="Imagen" />
+        <img src={forma} alt="" />
           <button className="link-button">Enlace</button>
         </div>
       </div>
