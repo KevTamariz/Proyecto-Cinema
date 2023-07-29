@@ -30,7 +30,7 @@ export default class Navbar extends Component {
             </div>
             <ul id="nav" className="nav">
               <li className="encabezado li_nav">
-                <Link className="nav_link" to="/Cartelera">
+                <Link className="nav_link" to="/Home">
                   En cartelera
                 </Link>
               </li>
