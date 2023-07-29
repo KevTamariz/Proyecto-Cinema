@@ -1,0 +1,72 @@
+/* ContenedoresColumna.css */
+
+.col-Funciones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.contenedores-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .contenedor {
+    width: 300px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .imagen-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .imagen-container img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+  }
+  
+  .link-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .info-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .info-item {
+    margin-bottom: 5px;
+  }
+  
+  .texto-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .subdiv {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .subdiv-item {
+    flex: 1;
+    color: #fff;
+    padding: 10px;
+    margin: 5px;
+  }
+  
+  .black-bg {
+    background-color: #000;
+  }
+  
