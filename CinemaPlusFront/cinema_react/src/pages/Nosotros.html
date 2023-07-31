@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CinemaPlus</title>
+    <style>
+        .centrado {
+            text-align: center;
+        }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=TU_CLAVE_DE_API&callback=initMap" async defer></script>
+    <style>
+        /* Establecer el tamaño del mapa */
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="centrado">
+        <h1>ACERCA DE</h1>
+        
+    </div>
+    <div id="map"></div>
+    <img src="C:\Users\hogwa\Downloads\images.jpeg" alt="Asi se ve nuestros cines">
+    <script>
+        function initMap() {
+            // Coordenadas del centro del mapa
+            var coordenadas = { lat: 40.7128, lng: -74.0060 };
+            
+            // Crear el mapa
+            var mapa = new google.maps.Map(document.getElementById('map'), {
+                center: coordenadas,
+                zoom: 8 // Nivel de zoom inicial
+            });
+
+            // Marcador en el mapa
+            var marcador = new google.maps.Marker({
+                position: coordenadas,
+                map: mapa,
+                title: 'Mexico'
+            });
+        }
+    </script>
+    <h2>Contactanos</h2>
+    <p>Numero de contacto: 2965932529</p>
+    <p>Redes Sociales: Link de direcciones</p>
+    <p>Direccion: Aqui va una direccion</p>
+</body>
+</html>
