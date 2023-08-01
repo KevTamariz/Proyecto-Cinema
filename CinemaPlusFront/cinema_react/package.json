@@ -23,7 +23,9 @@
       "react-app",
       "react-app/jest"
     ]
+    
   },
+  "proxy": "http://34.68.144.122:5000/sucursales/1/proyecciones",
   "browserslist": {
     "production": [
       ">0.2%",
