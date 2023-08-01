@@ -11,10 +11,11 @@ CORS(app, origins='*')
 def index():
     return 'Hello world'
 
+
 # Ver proyecciones
 @app.route('/sucursales/1/proyecciones', methods=['GET'])
 def get_proyecciones_sucursal1():
-    db.cursor.execute("SELECT p.id_proyeccion, p.horario, p.dia, p.pelicula_id FROM Proyeccion p JOIN Sala s ON p.sala_id = s.id_sala WHERE s.sucursal_id = 1")
+    db.cursor.execute("SELECT p.id_proyeccion, p.horario, p.dia, pl.nombre_pelicula FROM Proyeccion p JOIN Sala s ON p.sala_id = s.id_sala JOIN Pelicula pl ON p.pelicula_id = pl.id_pelicula WHERE s.sucursal_id = 1")
     proyecciones = db.cursor.fetchall()
 
     if proyecciones:
@@ -26,8 +27,8 @@ def get_proyecciones_sucursal1():
         return jsonify(proyecciones_converted)
     else:
         return jsonify({'message': 'No hay proyecciones para la sucursal especificada'}), 404
-    
 
+    
 # Ruta para ver qué asientos están ocupados dependiendo de la sala
 @app.route('/salas/<int:sala_id>/asientos_ocupados', methods=['GET'])
 def get_asientos_ocupados_by_sala_id(sala_id):
