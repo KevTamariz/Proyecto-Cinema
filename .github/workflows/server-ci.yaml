@@ -20,10 +20,10 @@ jobs:
         env:
           DOCKERHUB_REPO: ${{ secrets.DOCKERHUB_REPO }}
         run: |
-          cd backend-python && docker build -t $DOCKERHUB_REPO:server.v2.3 .
+          cd backend-python && docker build -t $DOCKERHUB_REPO:server.v2.4 .
 
       - name: Docker push
         env:
           DOCKERHUB_REPO: ${{ secrets.DOCKERHUB_REPO }}
         run: |
-          docker push $DOCKERHUB_REPO:server.v2.3
+          docker push $DOCKERHUB_REPO:server.v2.4
