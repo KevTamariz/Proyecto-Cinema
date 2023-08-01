@@ -5,7 +5,7 @@ db_config = {
     "host": "35.184.44.133",
     "user": "admin",
     "passwd": "@cinemaplus1010",
-    "database": "cinemaplus"
+    "database": "cinemaplus2"
 }
 
 # Establecer conexion a la base de datos
