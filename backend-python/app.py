@@ -8,7 +8,7 @@ app = Flask(__name__)
 def index():
     return 'Hello world'
 
-
+# Ver proyecciones
 @app.route('/sucursales/1/proyecciones', methods=['GET'])
 def get_proyecciones_sucursal1():
     db.cursor.execute("SELECT p.id_proyeccion, p.horario, p.dia, p.pelicula_id FROM Proyeccion p JOIN Sala s ON p.sala_id = s.id_sala WHERE s.sucursal_id = 1")
@@ -66,18 +66,10 @@ def comprar_boleto():
     data = request.get_json()
     cliente_correo = data.get('correo')
     cliente_numero_tarjeta = data.get('numero_tarjeta')
-    proyeccion_id = data.get('proyeccion_id')
     asiento_id = data.get('asiento_id')
 
-    if not all([cliente_correo, cliente_numero_tarjeta, proyeccion_id, asiento_id]):
+    if not all([cliente_correo, cliente_numero_tarjeta, asiento_id]):
         return jsonify({'message': 'Todos los campos son requeridos'}), 400
-
-    # Verificar si la proyección existe
-    db.cursor.execute("SELECT precio FROM Proyeccion WHERE id_proyeccion = %s", (proyeccion_id,))
-    proyeccion_precio = db.cursor.fetchone()
-
-    if not proyeccion_precio:
-        return jsonify({'message': 'Proyección no encontrada'}), 404
 
     # Verificar si el asiento está ocupado
     db.cursor.execute("SELECT ocupado FROM Asiento WHERE id_asiento = %s", (asiento_id,))
@@ -97,9 +89,9 @@ def comprar_boleto():
     if not cliente_id:
         return jsonify({'message': 'Cliente no encontrado. Regístrese antes de comprar un boleto'}), 404
 
-    # Insertar el nuevo boleto en la tabla 'Boleto'
-    db.cursor.execute("INSERT INTO Boleto (precio, proyeccion_id, asiento_id, cliente_id) VALUES (%s, %s, %s, %s)",
-                   (proyeccion_precio[0], proyeccion_id, asiento_id, cliente_id[0]))
+    # Insertar el nuevo boleto en la tabla 'Boleto' sin incluir el campo 'precio' o 'proyeccion_id'
+    db.cursor.execute("INSERT INTO Boleto (asiento_id, cliente_id) VALUES (%s, %s)",
+                   (asiento_id, cliente_id[0]))
     db.connection.commit()
 
     # Actualizar el estado del asiento a ocupado
