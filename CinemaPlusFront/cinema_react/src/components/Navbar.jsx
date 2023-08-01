@@ -4,48 +4,24 @@ import './Navbar.css';
 
 export default class Navbar extends Component {
   state = {
-    selectedSucursal: 1,
-    proyecciones: [],
+    selectedCity: 'Veracruz' // Valor inicial por defecto
   };
 
-  componentDidMount() {
-    // Llamada a la API para obtener las proyecciones de la sucursal seleccionada
-    this.fetchProyecciones();
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    // Si cambia la sucursal seleccionada, actualizar las proyecciones
-    if (prevState.selectedSucursal !== this.state.selectedSucursal) {
-      this.fetchProyecciones();
-    }
-  }
-
-  fetchProyecciones() {
-    const { selectedSucursal } = this.state;
-    // Reemplaza 'URL_DE_TU_API' con la URL real de tu API para obtener las proyecciones
-    fetch(`/sucursales${selectedSucursal}/proyecciones`)
-      .then((response) => response.json())
-      .then((data) => this.setState({ proyecciones: data }))
-      .catch((error) => console.error('Error al obtener las proyecciones:', error));
-  }
-
-  handleSucursalChange = (event) => {
-    const selectedSucursal = parseInt(event.target.value);
-    this.setState({ selectedSucursal });
+  // Función para manejar el cambio de ciudad seleccionada
+  handleCityChange = (event) => {
+    this.setState({
+      selectedCity: event.target.value
+    });
   };
 
   render() {
-    const { selectedSucursal, proyecciones } = this.state;
+    const { selectedCity } = this.state;
 
     return (
       <nav className="navbar">
         <div className="container">
           <div className="header">
-            <img
-              className="img_logo"
-              src="https://img.icons8.com/officel/80/000000/photo-reel.png"
-              alt="logo"
-            />
+            <img className="img_logo" src="https://img.icons8.com/officel/80/000000/photo-reel.png" alt="logo" />
             <h1 className="logo_text">CinemaPlus</h1>
           </div>
           <div className="main_nav">
@@ -70,40 +46,15 @@ export default class Navbar extends Component {
               </li>
             </ul>
           </div>
-          {/* Select para seleccionar la sucursal */}
-          <div className="sucursal_select_container">
-            <label className="label_font" htmlFor="sucursalSelect">
-              Selecciona tu sucursal:
-            </label>
-            <select
-              id="sucursalSelect"
-              className="sucursalSelect"
-              value={selectedSucursal}
-              onChange={this.handleSucursalChange}
-            >
-              <option value={1}>Veracruz</option>
-              <option value={2}>Orizaba</option>
-              <option value={3}>Xalapa</option>
-            </select>
-          </div>
+           <div className="city_select_container">
+              <label className='label_font' htmlFor="citySelect">Selecciona tu ciudad:</label>
+              <select id="citySelect" className="citySelect" value={selectedCity} onChange={this.handleCityChange}>
+                <option value="Veracruz">Veracruz</option>
+                <option value="Orizaba">Orizaba</option>
+                <option value="Xalapa">Xalapa</option>
+              </select>
+            </div>
         </div>
-        {/* Muestra las proyecciones si existen */}
-        {proyecciones.length > 0 ? (
-          <div className="proyecciones">
-            {proyecciones.map((proyeccion) => (
-              <div key={proyeccion.id_proyeccion}>
-                <p>Día: {proyeccion.dia}</p>
-                <p>Horario: {proyeccion.horario}</p>
-                <p>Película ID: {proyeccion.pelicula_id}</p>
-                <p>Sala ID: {proyeccion.sala_id}</p>
-                <p>Sucursal ID: {proyeccion.sucursal_id}</p>
-              </div>
-            ))}
-          </div>
-        ) : (
-          // Mostrar mensaje si no hay proyecciones disponibles
-          <p>No hay proyecciones disponibles.</p>
-        )}
       </nav>
     );
   }
