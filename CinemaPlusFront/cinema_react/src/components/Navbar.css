@@ -12,6 +12,7 @@
   align-items: center;
   padding: 1px 1px;
   transition: 0.5s;
+  z-index: 3;
 }
 
 .container {
@@ -117,11 +118,11 @@
     text-decoration: none; /* Cambiamos el color del texto al pasar el cursor */
   }
 
-  .city_select_container{
+  .sucursal_select_container{
     display: flex;
     margin-left: 5rem;
   }
-  .citySelect{
+  .sucursalSelect{
     position: relative;
     display: flex;
     flex-direction: row;

@@ -5,6 +5,7 @@
     flex-direction: column;
     align-items: center;
     border-color: white;
+    z-index: -1;
 }
 .contenedores-container {
     display: flex;
@@ -12,12 +13,54 @@
     align-items: center;
     margin-top: 20px;
     border-color: white;
+    background-image: url('../../assets/barbie.jpg');
+    background-size: cover; /* Ajusta el tamaño de la imagen al contenedor */
+    background-position: center; /* Centra la imagen en el contenedor */
+    background-color: rgba(0, 0, 0, 0.7); 
+    opacity: 2 ; 
   }
+  .contenedores-container2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+    border-color: white;
+    background-image: url('../../assets/etzontal.jpg');
+    background-size: cover; /* Ajusta el tamaño de la imagen al contenedor */
+    background-position: center; /* Centra la imagen en el contenedor */
+    background-color: rgba(0, 0, 0, 0.7); 
+    opacity: 2; 
+  }
+  .contenedores-container3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+    border-color: white;
+    background-image: url('../../assets/GranTorinoHorjpg.jpg');
+    background-size: cover; /* Ajusta el tamaño de la imagen al contenedor */
+    background-position: center; /* Centra la imagen en el contenedor */
+    background-color: rgba(0, 0, 0, 0.7); 
+    opacity: 2; 
+  }
+  .contenedores-container4 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+    border-color: white;
+    background-image: url('../../assets/etzontal.jpg');
+    background-size: cover; /* Ajusta el tamaño de la imagen al contenedor */
+    background-position: center; /* Centra la imagen en el contenedor */
+    background-color: rgba(0, 0, 0, 0.7); 
+    opacity: 0.9; 
+  }
+  
   
   .contenedor {
     width: 300px;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid black;
     padding: 10px;
   }
   
