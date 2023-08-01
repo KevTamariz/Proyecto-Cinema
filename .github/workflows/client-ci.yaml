@@ -22,10 +22,10 @@ jobs:
         env:
           DOCKERHUB_REPO: ${{ secrets.DOCKERHUB_REPO }}
         run: |
-          cd CinemaPlusFront/cinema_react && docker build -t $DOCKERHUB_REPO:client.v2.1 .
+          cd CinemaPlusFront/cinema_react && docker build -t $DOCKERHUB_REPO:client.v2.2 .
 
       - name: Docker push
         env:
           DOCKERHUB_REPO: ${{ secrets.DOCKERHUB_REPO }}
         run: |
-          docker push $DOCKERHUB_REPO:client.v2.1
+          docker push $DOCKERHUB_REPO:client.v2.2
