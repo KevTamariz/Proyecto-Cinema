@@ -9,9 +9,9 @@ db_config = {
 }
 
 # Establecer conexion a la base de datos
-connetion = mysql.connector.connect(**db_config)
+connection = mysql.connector.connect(**db_config)
 
 # Objeto cursos para ejecutar consultar
-cursor = connetion.cursor(dictionary=True)
+cursor = connection.cursor(dictionary=True)
 
 
