@@ -4,7 +4,6 @@ import Home from './pages/Home'
 import Nosotros from './pages/Nosotros'
 import Navbar from './components/Navbar'
 import RegistroUsuario from './components/formulario_registro/RegistroUsuario'
-import FormularioCompraBoleto from './components/formulario_compra/FormularioCompraBoleto'
 
 const App = () => {
   return (
@@ -16,7 +15,6 @@ const App = () => {
           <Route path='/Home' element={<Home />} />
           <Route path='/Nosotros' element={<Nosotros />} />
           <Route path="/RegistroUsuario" element={<RegistroUsuario />} /> 
-          <Route path="/comprar/:proyeccionId" component={FormularioCompraBoleto} />
         </Routes>
       </BrowserRouter>
     </div>

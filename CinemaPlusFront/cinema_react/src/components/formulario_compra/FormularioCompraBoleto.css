@@ -5,9 +5,10 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    margin-top: 5rem;
   }
   
-  .formulario-compra-container form {
+  .formulario-compra-form {
     width: 300px;
     padding: 20px;
     border: 1px solid #ccc;
@@ -15,7 +16,7 @@
     background-color: #f8f8f8;
   }
   
-  .formulario-compra-container input {
+  .formulario-compra-form input {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -23,7 +24,7 @@
     border-radius: 4px;
   }
   
-  .formulario-compra-container button {
+  .formulario-compra-form button {
     width: 100%;
     padding: 10px;
     background-color: #007bff;
@@ -33,22 +34,22 @@
     cursor: pointer;
   }
   
-  .formulario-compra-container button:hover {
+  .formulario-compra-form button:hover {
     background-color: #0056b3;
   }
   
-  .formulario-compra-container p {
+  .formulario-compra-message {
     text-align: center;
     margin-top: 10px;
     color: #007bff;
     font-weight: bold;
   }
   
-  .formulario-compra-container input:invalid {
+  .formulario-compra-form input:invalid {
     border-color: #dc3545;
   }
   
-  .formulario-compra-container input:valid {
+  .formulario-compra-form input:valid {
     border-color: #28a745;
   }
   
