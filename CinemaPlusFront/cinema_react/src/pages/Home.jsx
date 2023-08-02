@@ -1,7 +1,7 @@
 // pages/Home.js
 import React from 'react';
-import Slider from '../components/slider/Slider';
-//import NavFechas from '../components/navfechas/Navfechas';
+
+import RegistroUsuario from '../components/formulario_registro/RegistroUsuario';
 import FuncionesCol from '../components/funcionescol/FuncionesCol';
 
 const slides = [
@@ -13,7 +13,6 @@ const slides = [
 const Home = () => {
   return (
     <div>
-      <Slider slides={slides} />
       <FuncionesCol />
     </div>
   );

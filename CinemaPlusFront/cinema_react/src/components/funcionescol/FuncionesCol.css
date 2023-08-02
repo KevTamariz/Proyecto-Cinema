@@ -5,6 +5,7 @@
     flex-direction: column;
     align-items: center;
     border-color: white;
+    margin-top: 10rem;
 }
 .contenedores-container {
     display: flex;

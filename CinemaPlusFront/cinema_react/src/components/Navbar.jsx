@@ -35,8 +35,8 @@ export default class Navbar extends Component {
                 </Link>
               </li>
               <li className="encabezado li_nav">
-                <Link className="nav_link" to="/Proximamente">
-                  Próximamente
+                <Link className="nav_link" to="/RegistroUsuario">
+                  Registrarse
                 </Link>
               </li>
               <li className="encabezado li_nav">
