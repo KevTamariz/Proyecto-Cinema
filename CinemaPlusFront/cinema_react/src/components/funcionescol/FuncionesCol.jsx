@@ -10,11 +10,36 @@ const FuncionesCol = () => {
 
   useEffect(() => {
     // Llamada a la API para obtener las proyecciones de la sucursal 1
-    fetch('/sucursales/1/proyecciones')
+    fetch('http://34.68.144.122:5000/sucursales/1/proyecciones')
       .then((response) => response.json())
       .then((data) => setProyecciones(data))
       .catch((error) => console.error('Error al obtener las proyecciones:', error));
   }, []);
+
+  const handleCompraBoleto = (proyeccion) => {
+    // Aquí puedes enviar los datos de la proyección al backend
+    const data = {
+      nombre: proyeccion.nombre_pelicula,
+      // Agrega los datos adicionales que necesites enviar al backend
+    };
+
+    // Realiza la llamada a la API para registrar la compra del boleto
+    fetch('/registrar_usuario', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Aquí puedes manejar la respuesta del backend si es necesario
+        console.log('Respuesta del backend:', data);
+      })
+      .catch((error) => {
+        console.error('Error al registrar la compra del boleto:', error);
+      });
+  };
 
   // Función para obtener la URL de la imagen según el nombre de la película
   const getImagenUrl = (nombrePelicula) => {
@@ -65,7 +90,7 @@ const FuncionesCol = () => {
               {/* Utiliza la función getImagenUrl para obtener la URL de la imagen según la película */}
               <img src={getImagenUrl(proyeccion.nombre_pelicula)} alt="" />
               <Link to="/formulario">
-                <button className="link-button">Comprar Boleto</button>
+                <button className="link-button" onClick={() => handleCompraBoleto(proyeccion)}>Comprar Boleto</button>
               </Link>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import './NavFechas.css';
 
 const NavFechas = () => {
@@ -14,4 +14,4 @@ const NavFechas = () => {
   );
 };
 
-export default NavFechas;
+export default NavFechas;*/

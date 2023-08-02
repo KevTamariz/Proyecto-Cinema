@@ -1,4 +1,4 @@
-/* NavFechas.css */
+/* NavFechas.css 
 
 .function-buttons-container {
     display: flex;
@@ -24,8 +24,8 @@
   }
   
   .btn-fun {
-    font-size: 16px; /* Aumentamos el tamaÃ±o de fuente */
-  padding: 10px 16px; /* Ajustamos el padding para hacer los botones mÃ¡s grandes */
+    font-size: 16px; Aumentamos el tamaÃ±o de fuente 
+  padding: 10px 16px;  Ajustamos el padding para hacer los botones mÃ¡s grandes 
   border: 1px solid gray;
   border-radius: 5px;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -33,11 +33,11 @@
   }
   
   .btn-fun:not(:last-child) {
-    margin-right: 10px; /* Aumentamos el margen entre botones */
+    margin-right: 10px;  Aumentamos el margen entre botones 
   }
   
   .btn-fun:hover {
     background-color: gray;
     color: black;
   }
-  
+  */
