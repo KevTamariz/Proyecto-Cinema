@@ -3,6 +3,7 @@ import './FuncionesCol.css';
 import forma from '../../assets/BarbieCol.jpeg';
 import forma1 from '../../assets/ETPOSTER.jpeg';
 import forma2 from '../../assets/NochDemon.jpeg';
+import { Link } from 'react-router-dom'; 
 
 const FuncionesCol = () => {
   const [proyecciones, setProyecciones] = useState([]);
@@ -51,10 +52,9 @@ const FuncionesCol = () => {
          Sin embargo, su vida da un giro inesperado cuando es desterrada de su mágica isla cuando todo lo que conoce comienza a derrumbarse.
          Repentinamente, Barbie se encuentra en el mundo real de los humanos, un lugar desconocido y lleno de desafíos.</p>
     }
-    // Si la película no coincide con ninguna de las anteriores, puedes devolver una imagen por defecto
-    return // Otra imagen por defecto
+   
+    return
   };
-
   return (
     <div className='col-Funciones'>
       {proyecciones.map((proyeccion) => (
@@ -64,7 +64,9 @@ const FuncionesCol = () => {
             <div className="imagen-container">
               {/* Utiliza la función getImagenUrl para obtener la URL de la imagen según la película */}
               <img src={getImagenUrl(proyeccion.nombre_pelicula)} alt="" />
-              <button className="link-button">Comprar Boleto</button>
+              <Link to="/formulario">
+                <button className="link-button">Comprar Boleto</button>
+              </Link>
             </div>
           </div>
           {/* Segundo contenedor */}
