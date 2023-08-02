@@ -1,0 +1,54 @@
+/* FormularioCompraBoleto.css */
+.formulario-compra-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .formulario-compra-container form {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+  }
+  
+  .formulario-compra-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .formulario-compra-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .formulario-compra-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .formulario-compra-container p {
+    text-align: center;
+    margin-top: 10px;
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .formulario-compra-container input:invalid {
+    border-color: #dc3545;
+  }
+  
+  .formulario-compra-container input:valid {
+    border-color: #28a745;
+  }
+  
