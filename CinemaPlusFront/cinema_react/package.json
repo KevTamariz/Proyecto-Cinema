@@ -25,7 +25,6 @@
     ]
     
   },
-  "proxy": "http://34.68.144.122:5000",
   "browserslist": {
     "production": [
       ">0.2%",

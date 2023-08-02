@@ -1,7 +1,7 @@
 // pages/Home.js
 import React from 'react';
 import Slider from '../components/slider/Slider';
-import NavFechas from '../components/navfechas/Navfechas';
+//import NavFechas from '../components/navfechas/Navfechas';
 import FuncionesCol from '../components/funcionescol/FuncionesCol';
 
 const slides = [
@@ -14,7 +14,6 @@ const Home = () => {
   return (
     <div>
       <Slider slides={slides} />
-      <NavFechas />
       <FuncionesCol />
     </div>
   );
