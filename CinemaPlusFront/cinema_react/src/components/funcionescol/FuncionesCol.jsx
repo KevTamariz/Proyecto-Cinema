@@ -1,4 +1,3 @@
-// FuncionesCol.js
 import React, { useState, useEffect } from 'react';
 import './FuncionesCol.css';
 import forma from '../../assets/BarbieCol.jpeg';
@@ -36,54 +35,53 @@ const FuncionesCol = () => {
     return forma; // Otra imagen por defecto
   };
 
+
   const getSinopsis = (nombrePelicula) => {
     
-      if (nombrePelicula === 'E.T') {
-        return (
-          <p>
-            Un pequeño ser de otro planeta se queda abandonado en la Tierra cuando su nave se marcha olvidándose de él.
-            Tiene miedo. Está completamente solo, pero se hará amigo de un niño,
-            que lo esconde en su casa. El niño y sus hermanos intentarán encontrar la forma de que el pequeño extraterrestre 
-            regrese a su planeta antes de que los científicos y la policía lo encuentren.
-          </p>
-        );
-      } else if (nombrePelicula === 'La noche del demonio') {
-        return (
-          <p>
-            Cuenta la historia de una familia que se muda a su nueva casa,
-            donde comienzan a suceder cosas extrañas. Josh, su esposa Reani 
-            y sus tres hijos ya están instalados en su nuevo hogar cuando su hijo mayor cae en estado de coma sin explicación. 
-            Es ahí cuando comienzan a producirse, en casa, extraños fenómenos que aterrorizan a la familia.
-            Una medium revisa la casa pero les dice que no se trata del típico caso de una casa embrujada, 
-            sino de fuerzas del mal que tratan de apoderarse del cuerpo de su hijo mientras su alma se encuentra atrapada
-            en algún lugar entre la vida y la muerte en la dimensión astral.
-          </p>
-        );
-      } else if (nombrePelicula === 'Barbie') {
-        return (
-          <p>
-            Seguimos la emocionante travesía de Barbie, una estereotípica muñeca que vive felizmente en la maravillosa comunidad de muñecas de Barbieland.
-            Sin embargo, su vida da un giro inesperado cuando es desterrada de su mágica isla cuando todo lo que conoce comienza a derrumbarse.
-            Repentinamente, Barbie se encuentra en el mundo real de los humanos, un lugar desconocido y lleno de desafíos.
-          </p>
-        );
-      }
-     
-      return null;
-    };
-  
-
+    if (nombrePelicula === 'E.T') {
+      return (
+        <p>
+          Un pequeño ser de otro planeta se queda abandonado en la Tierra cuando su nave se marcha olvidándose de él.
+          Tiene miedo. Está completamente solo, pero se hará amigo de un niño,
+          que lo esconde en su casa. El niño y sus hermanos intentarán encontrar la forma de que el pequeño extraterrestre 
+          regrese a su planeta antes de que los científicos y la policía lo encuentren.
+        </p>
+      );
+    } else if (nombrePelicula === 'La noche del demonio') {
+      return (
+        <p>
+          Cuenta la historia de una familia que se muda a su nueva casa,
+          donde comienzan a suceder cosas extrañas. Josh, su esposa Reani 
+          y sus tres hijos ya están instalados en su nuevo hogar cuando su hijo mayor cae en estado de coma sin explicación. 
+          Es ahí cuando comienzan a producirse, en casa, extraños fenómenos que aterrorizan a la familia.
+          Una medium revisa la casa pero les dice que no se trata del típico caso de una casa embrujada, 
+          sino de fuerzas del mal que tratan de apoderarse del cuerpo de su hijo mientras su alma se encuentra atrapada
+          en algún lugar entre la vida y la muerte en la dimensión astral.
+        </p>
+      );
+    } else if (nombrePelicula === 'Barbie') {
+      return (
+        <p>
+          Seguimos la emocionante travesía de Barbie, una estereotípica muñeca que vive felizmente en la maravillosa comunidad de muñecas de Barbieland.
+          Sin embargo, su vida da un giro inesperado cuando es desterrada de su mágica isla cuando todo lo que conoce comienza a derrumbarse.
+          Repentinamente, Barbie se encuentra en el mundo real de los humanos, un lugar desconocido y lleno de desafíos.
+        </p>
+      );
+    }
+   
+    return null;
+  };
   return (
-    <div className='col-Funciones'>
+    <div className="col-Funciones">
       {proyecciones.map((proyeccion) => (
         <div className="contenedores-container" key={proyeccion.id_proyeccion}>
           {/* Primer contenedor */}
           <div className="contenedor">
             <div className="imagen-container">
               <img src={getImagenUrl(proyeccion.nombre_pelicula)} alt="" />
-              <Link to={`/comprar/${proyeccion.id_proyeccion}`} className="link-button">
+              <button onClick={() => handleCompraBoleto(proyeccion)} className="link-button">
                 Comprar Boleto
-              </Link>
+              </button>
             </div>
           </div>
           {/* Segundo contenedor */}
@@ -109,9 +107,13 @@ const FuncionesCol = () => {
 
       {/* Mostrar un mensaje si no hay proyecciones */}
       {proyecciones.length === 0 && <p>No hay proyecciones disponibles.</p>}
+
+      {/* Mostrar el formulario si showForm es true */}
+      {showForm && selectedProyeccion && (
+        <FormularioCompraBoleto proyeccion={selectedProyeccion} />
+      )}
     </div>
   );
 };
-
 
 export default FuncionesCol;
