@@ -38,14 +38,12 @@ def get_asientos_ocupados_by_sala_id(sala_id):
     return jsonify(asientos_ocupados)
 
 
-# Ruta para registrar un nuevo usuario
 @app.route('/registrar_usuario', methods=['POST'])
 def registrar_usuario():
-    data = request.get_json()
-    nombre = data.get('nombre')
-    correo = data.get('correo')
-    numero_tarjeta = data.get('numero_tarjeta')
-    pin_tarjeta = data.get('pin_tarjeta')
+    nombre = request.form.get('nombre')
+    correo = request.form.get('correo')
+    numero_tarjeta = request.form.get('numero_tarjeta')
+    pin_tarjeta = request.form.get('pin_tarjeta')
 
     if not all([nombre, correo, numero_tarjeta, pin_tarjeta]):
         return jsonify({'message': 'Todos los campos son requeridos'}), 400
@@ -67,10 +65,9 @@ def registrar_usuario():
 # Ruta para comprar un boleto
 @app.route('/comprar_boleto', methods=['POST'])
 def comprar_boleto():
-    data = request.get_json()
-    cliente_correo = data.get('correo')
-    cliente_numero_tarjeta = data.get('numero_tarjeta')
-    asiento_id = data.get('asiento_id')
+    cliente_correo = request.form.get('correo')
+    cliente_numero_tarjeta = request.form.get('numero_tarjeta')
+    asiento_id = request.form.get('asiento_id')
 
     if not all([cliente_correo, cliente_numero_tarjeta, asiento_id]):
         return jsonify({'message': 'Todos los campos son requeridos'}), 400
