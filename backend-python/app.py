@@ -64,7 +64,7 @@ def comprar_boleto():
     cliente_correo = request.form.get('correo')
     cliente_numero_tarjeta = request.form.get('numero_tarjeta')
     nombre_asiento = request.form.get('asiento')
-    proyeccion_id = int(request.form.get('proyeccion'))  # El frontend debe enviar el ID de la proyección seleccionada
+    proyeccion_id = request.form.get('proyeccion')  # El frontend debe enviar el ID de la proyección seleccionada
 
     if not all([cliente_correo, cliente_numero_tarjeta, nombre_asiento, proyeccion_id]):
         return jsonify({'message': 'Todos los campos son requeridos'}), 400
@@ -105,7 +105,6 @@ def comprar_boleto():
     db.connection.commit()
 
     return jsonify({'message': 'Boleto comprado exitosamente'}), 201
-
 
 if __name__ == "__main__":
     app.run(debug=True)
