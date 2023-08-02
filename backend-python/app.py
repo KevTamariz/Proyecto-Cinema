@@ -56,31 +56,18 @@ def registrar_usuario():
     # Obtener el ID del usuario recién insertado
     usuario_id = db.cursor.lastrowid
 
-    db.cursor.close()
-    db.connection.close()
-
     return jsonify({'message': 'Usuario registrado exitosamente', 'usuario_id': usuario_id}), 201
 
 
-# Ruta para comprar un boleto
 @app.route('/comprar_boleto', methods=['POST'])
 def comprar_boleto():
     cliente_correo = request.form.get('correo')
     cliente_numero_tarjeta = request.form.get('numero_tarjeta')
-    asiento_id = request.form.get('asiento_id')
+    nombre_asiento = request.form.get('asiento')
+    proyeccion_id = int(request.form.get('proyeccion'))  # El frontend debe enviar el ID de la proyección seleccionada
 
-    if not all([cliente_correo, cliente_numero_tarjeta, asiento_id]):
+    if not all([cliente_correo, cliente_numero_tarjeta, nombre_asiento, proyeccion_id]):
         return jsonify({'message': 'Todos los campos son requeridos'}), 400
-
-    # Verificar si el asiento está ocupado
-    db.cursor.execute("SELECT ocupado FROM Asiento WHERE id_asiento = %s", (asiento_id,))
-    asiento_ocupado = db.cursor.fetchone()
-
-    if not asiento_ocupado:
-        return jsonify({'message': 'Asiento no encontrado'}), 404
-
-    if asiento_ocupado[0]:
-        return jsonify({'message': 'El asiento está ocupado'}), 400
 
     # Buscar al cliente en la tabla 'Cliente' por correo y número de tarjeta
     db.cursor.execute("SELECT id_cliente FROM Cliente WHERE correo = %s AND numero_tarjeta = %s",
@@ -90,17 +77,32 @@ def comprar_boleto():
     if not cliente_id:
         return jsonify({'message': 'Cliente no encontrado. Regístrese antes de comprar un boleto'}), 404
 
+    # Buscar el ID del asiento por su nombre y el ID de la sala (con sucursal_id = 1) en la tabla 'Asiento'
+    db.cursor.execute("SELECT a.id_asiento FROM Asiento a JOIN Sala s ON a.sala_id = s.id_sala WHERE a.nombre_asiento = %s AND s.sucursal_id = 1",
+                      (nombre_asiento,))
+    asiento_id = db.cursor.fetchone()
+
+    if not asiento_id:
+        return jsonify({'message': 'Asiento no encontrado'}), 404
+
+    # Verificar si el asiento está ocupado
+    db.cursor.execute("SELECT ocupado FROM Asiento WHERE id_asiento = %s", (asiento_id[0],))
+    asiento_ocupado = db.cursor.fetchone()
+
+    if not asiento_ocupado:
+        return jsonify({'message': 'Asiento no encontrado'}), 404
+
+    if asiento_ocupado[0]:
+        return jsonify({'message': 'El asiento está ocupado'}), 400
+
     # Insertar el nuevo boleto en la tabla 'Boleto' sin incluir el campo 'precio' o 'proyeccion_id'
     db.cursor.execute("INSERT INTO Boleto (asiento_id, cliente_id) VALUES (%s, %s)",
-                   (asiento_id, cliente_id[0]))
+                      (asiento_id[0], cliente_id[0]))
     db.connection.commit()
 
     # Actualizar el estado del asiento a ocupado
-    db.cursor.execute("UPDATE Asiento SET ocupado = TRUE WHERE id_asiento = %s", (asiento_id,))
+    db.cursor.execute("UPDATE Asiento SET ocupado = TRUE WHERE id_asiento = %s", (asiento_id[0],))
     db.connection.commit()
-
-    db.cursor.close()
-    db.connection.close()
 
     return jsonify({'message': 'Boleto comprado exitosamente'}), 201
 
